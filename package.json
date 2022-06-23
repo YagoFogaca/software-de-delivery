@@ -1,0 +1,25 @@
+{
+  "name": "software-de-delivery",
+  "version": "1.0.0",
+  "description": "Projeto do FOGAÇA’S BURGER O projeto tem como objetivo fazer uma simulação de um software de delivery de uma empresa de hamburgueria.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YagoFogaca/software-de-delivery.git"
+  },
+  "author": "Yago Fogaça",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YagoFogaca/software-de-delivery/issues"
+  },
+  "homepage": "https://github.com/YagoFogaca/software-de-delivery#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.7.1"
+  }
+}
