@@ -32,7 +32,7 @@ const hamguergueres = {
             ' Maionese caseira',
             ' Ketchup',
         ],
-        preco: 27.99,
+        preco: 21.9,
     },
     op3: {
         nome: 'X-Tudo',
@@ -49,40 +49,7 @@ const hamguergueres = {
             ' Maionese caseira',
             ' Ketchup',
         ],
-        preco: 21.9,
-    },
-    mostrarOps: function (op) {
-        if (op === 0) {
-            for (let i in this.op1) {
-                if (i === 'nome') {
-                    console.log(`Lanche: ${this.op1[i]}`);
-                } else if (i === 'ingredientes') {
-                    console.log(`\n${this.op1[i]}`);
-                } else {
-                    console.log(`\nPreço: R$${this.op1[i]}`);
-                }
-            }
-        } else if (op === 1) {
-            for (let i in this.op2) {
-                if (i === 'nome') {
-                    console.log(`\n\nLanche: ${this.op2[i]}`);
-                } else if (i === 'ingredientes') {
-                    console.log(`\n${this.op2[i]}`);
-                } else {
-                    console.log(`\nPreço: R$${this.op2[i]}`);
-                }
-            }
-        } else if (op === 2) {
-            for (let i in this.op3) {
-                if (i === 'nome') {
-                    console.log(`\n\nLanche: ${this.op3[i]}`);
-                } else if (i === 'ingredientes') {
-                    console.log(`\n${this.op3[i]}`);
-                } else {
-                    console.log(`\nPreço: R$${this.op3[i]}`);
-                }
-            }
-        }
+        preco: 27.9,
     },
 };
 
@@ -107,48 +74,16 @@ const bebidas = {
         nome: 'Suco de Uva',
         preco: 5.5,
     },
-    mostrarOps: function (op) {
-        if (op === 0) {
-            for (let i in this.op1) {
-                if (i === 'nome') {
-                    console.log(`Bebida: ${this.op1[i]}`);
-                } else {
-                    console.log(`Preço: R$${this.op1[i]}`);
-                }
-            }
-        } else if (op === 1) {
-            for (let i in this.op2) {
-                if (i === 'nome') {
-                    console.log(`\nBebida: ${this.op2[i]}`);
-                } else {
-                    console.log(`Preço: R$${this.op2[i]}`);
-                }
-            }
-        } else if (op === 2) {
-            for (let i in this.op3) {
-                if (i === 'nome') {
-                    console.log(`\nBebida: ${this.op3[i]}`);
-                } else {
-                    console.log(`Preço: R$${this.op3[i]}`);
-                }
-            }
-        } else if (op === 3) {
-            for (let i in this.op4) {
-                if (i === 'nome') {
-                    console.log(`\nBebida: ${this.op4[i]}`);
-                } else {
-                    console.log(`Preço: R$${this.op4[i]}`);
-                }
-            }
-        } else if (op === 4) {
-            for (let i in this.op5) {
-                if (i === 'nome') {
-                    console.log(`\nBebida: ${this.op5[i]}`);
-                } else {
-                    console.log(`Preço: R$${this.op5[i]}`);
-                }
-            }
-        }
+};
+
+const sobremesas = {
+    op1: {
+        nome: 'Brigadeirão',
+        preco: 5.5,
+    },
+    op2: {
+        nome: 'Pé de moleque',
+        preco: 5,
     },
 };
 
@@ -160,9 +95,10 @@ const usuario = {
         numero: '',
         complemento: '',
     },
-    pedido: {
+    sacola: {
         pedido: [],
         preco: 0,
+        pagamento: '',
     },
 };
 
@@ -261,128 +197,193 @@ function continuar() {
     console.clear();
 }
 
+function cardapio() {
+    console.log('Lanches: ');
+    let indice = 0;
+    for (let b in hamguergueres) {
+        for (let i in hamguergueres[b]) {
+            if (i === 'nome') {
+                console.log(`\n${(indice += 1)}- ${hamguergueres[b][i]}`);
+            } else if (i === 'ingredientes') {
+                console.log(`\n${hamguergueres[b][i]}`);
+            } else if (i == 'preco') {
+                console.log('Preço: \x1b[38;5;196m', `R$${hamguergueres[b][i].toFixed(2)}`, '\x1b[0m');
+            }
+        }
+    }
+
+    console.log('\nBebidas:');
+
+    for (let b in bebidas) {
+        for (let i in bebidas[b]) {
+            if (i === 'nome') {
+                console.log(`\n${(indice += 1)}- ${bebidas[b][i]}`);
+            } else if (i == 'preco') {
+                console.log('Preço:', '\x1b[38;5;196m', `R$${bebidas[b][i].toFixed(2)}`, '\x1b[0m');
+            }
+        }
+    }
+
+    console.log('\nSobremesas:');
+
+    for (let b in sobremesas) {
+        for (let i in sobremesas[b]) {
+            if (i === 'nome') {
+                console.log(`\n${(indice += 1)}- ${sobremesas[b][i]}`);
+            } else if (i == 'preco') {
+                console.log('Preço:', '\x1b[38;5;196m', `R$${sobremesas[b][i].toFixed(2)}`, '\x1b[0m');
+            }
+        }
+    }
+}
+
 function funcionamento() {
+    let pedido = [];
+    let preco = 0;
     console.log("BEM VINDO A FOGAÇA'S BURGUER\n");
 
-    // cadastro();
+    cadastro();
 
     console.log(`Olá ${usuario.nome}.\nVamos te mostrar nosso cardapio`);
 
     continuar();
 
-    mostrar: while (true) {
-        // Mostra o menu
+    pedir: while (true) {
+        cardapio();
 
-        console.log('O que deseja ver ?\n1- HAMGUERES \n2- BEBIDAS \n3- SOBRIMESAS');
+        console.log(`\n\nVamos realizar seu pedido ${usuario.nome}\n`);
 
-        let mostrar = +prompt('1 , 2 , 3 ');
+        console.log(`O que deseja pedir? Escolha somente os números ESCOLHA SOMENTE OS NÚMEROS`);
 
-        if (mostrar < 1 || mostrar > 3 || isNaN(mostrar)) {
-            // Valida a escolha do usuario
+        let escolha = +prompt();
 
-            console.log('..Resposta invalida..\nVamos tentar novamente');
+        if (escolha < 1 || escolha > 10) {
+            console.log('\nResposta invalida\nVamos tentar novamente');
 
             continuar();
 
-            continue;
+            continue pedir;
         }
-
-        continuar();
-
-        switch (mostrar) {
-            // Mostra a escolha do usuario
+        switch (escolha) {
             case 1:
-                for (let i = 0; i < Object.keys(hamguergueres).length - 1; i++) {
-                    hamguergueres.mostrarOps(i);
+                pedido.push(hamguergueres.op1.nome);
+
+                pedido.push(hamguergueres.op1.preco);
+                obs: while (true) {
+                    console.log('Deseja fazer alguma obeservação?\nex: [SEM SALADA]');
+
+                    let obs = prompt('[ S / N ]  ').toLowerCase();
+
+                    if (obs != 's' && obs != 'n') {
+                        continue obs;
+                    } else if (obs === 's') {
+                        console.log('Escreva sua observação: ');
+
+                        obs = prompt('....  ');
+
+                        pedido.push(obs);
+
+                        usuario.sacola.pedido.push(pedido);
+
+                        break obs;
+                    } else {
+                        pedido.push('Sem observação');
+
+                        usuario.sacola.pedido.push(pedido);
+
+                        break obs;
+                    }
                 }
-
-                continuar();
-
                 break;
-
             case 2:
-                for (let i = 0; i < Object.keys(bebidas).length - 1; i++) {
-                    bebidas.mostrarOps(i);
-                }
-
-                continuar();
-
-                break;
-
-            case 3:
-                console.log('SOBRIMESAS Indisponivel ainda');
-
-                continuar();
-
-                break;
         }
 
-        while (true) {
-            // Mostrar dnv o menu
+        pedido: while (true) {
+            console.log('\n\nO que deseja fazer? \n');
 
-            console.log('Deseja ver novamente o menu? \n1- Sim \n2- Não');
+            console.log('1- Para pedir novamente \n2- Para ver sacola');
 
-            let verNovamente = +prompt('1 , 2 ');
+            let pedirNov = +prompt('[ 1 / 2 ]  ').toLowerCase();
 
-            if (verNovamente != 1 && verNovamente != 2) {
-                // Valida a escolha do usuario
-                console.log('..Resposta invalida..\nVamos tentar novamente');
-
-                continuar();
-
-                continue;
-            } else if (verNovamente === 1) {
-                // Mostra o menu
-
-                console.log('\nCarregando');
+            if (pedirNov < 1 || pedirNov > 2) {
+                continue pedido;
+            } else if (pedirNov === 1) {
+                pedido = [];
 
                 continuar();
 
-                continue mostrar;
-            } else {
-                // Sai do menu
-
-                console.log('\nSaindo');
-
+                continue pedir;
+            } else if (pedirNov === 2) {
                 continuar();
 
-                break mostrar;
+                for (let i = 0; i < usuario.sacola.pedido.length; i++) {
+                    console.log(usuario.sacola.pedido[i][1]);
+                    preco += usuario.sacola.pedido[i][1];
+                }
+
+                usuario.sacola.preco = preco.toFixed(2);
+
+                console.log(usuario.sacola);
+                finalizar: while (true) {
+                    console.log('\nO que deseja fazer? \n');
+
+                    console.log('1- Para pedir novamente \n2- Finalizar pedido');
+
+                    pedirNov = +prompt('[ 1 / 2 ]  ').toLowerCase();
+
+                    if (pedirNov < 1 || pedirNov > 2) {
+                        continue finalizar;
+                    } else if (pedirNov === 1) {
+                        pedido = [];
+
+                        continuar();
+
+                        continue pedir;
+                    } else {
+                        break pedido;
+                    }
+                }
             }
         }
-    }
-
-    pedir: while (true) {
-        console.log(`Vamos realizar seu pedido ${usuario.nome}`);
-
-        console.log(`O que deseja pedir? `);
 
         continuar();
-
-        console.log('Lanches: \n\n');
-
-        for (let b in hamguergueres) {
-            for (let i in hamguergueres[b]) {
-                if (i === 'nome') {
-                    console.log(`${hamguergueres[b][i]}`);
-                } else if (i == 'preco') {
-                    console.log('\x1b[38;5;196m', `Preço: R$${bebidas.op1.preco}`, '\x1b[0m');
-                }
-            }
-        }
-
-        console.log('\n\nBebidas: \n');
-
-        for (let b in bebidas) {
-            for (let i in bebidas[b]) {
-                if (i === 'nome') {
-                    console.log(`${bebidas[b][i]}`);
-                } else if (i == 'preco') {
-                    console.log('Preço:', '\x1b[38;5;196m', `R$${bebidas.op1.preco}`, '\x1b[0m');
-                }
-            }
-        }
 
         break pedir;
     }
+
+    pagamento: while (true) {
+        console.log('Sua sacola ficou dessa forma: ');
+
+        console.log(usuario.sacola);
+
+        console.log('\n\n1- Pagar com pix \n2- Pagar com cartão de credito \n3- Pagar com cartão de debito');
+
+        let pagamento = +prompt('[ 1 / 2 / 3]  ');
+
+        if (pagamento < 1 && pagamento > 3) {
+            continue pagamento;
+        } else if (pagamento === 1) {
+            pagamento = 'Pagamento por pix';
+        } else if (pagamento === 2) {
+            pagamento = 'Cartão de credito';
+        } else {
+            pagamento = 'Cartão de debito';
+        }
+
+        usuario.sacola.pagamento = pagamento;
+
+        break pagamento;
+    }
 }
+
 funcionamento();
+
+continuar();
+
+console.log(usuario.sacola);
+
+console.log('\n\nSeu pedido está sendo preparado\n\n');
+
+setTimeout(() => {
+    console.log('Seu pedido está pronto.');
+}, '5000');
