@@ -269,6 +269,7 @@ function funcionamento() {
                 pedido.push(hamguergueres.op1.nome);
 
                 pedido.push(hamguergueres.op1.preco);
+
                 obs: while (true) {
                     console.log('Deseja fazer alguma obeservação?\nex: [SEM SALADA]');
 
@@ -296,6 +297,284 @@ function funcionamento() {
                 }
                 break;
             case 2:
+                pedido.push(hamguergueres.op2.nome);
+
+                pedido.push(hamguergueres.op2.preco);
+
+                obs: while (true) {
+                    console.log('Deseja fazer alguma obeservação?\nex: [SEM SALADA]');
+
+                    let obs = prompt('[ S / N ]  ').toLowerCase();
+
+                    if (obs != 's' && obs != 'n') {
+                        continue obs;
+                    } else if (obs === 's') {
+                        console.log('Escreva sua observação: ');
+
+                        obs = prompt('....  ');
+
+                        pedido.push(obs);
+
+                        usuario.sacola.pedido.push(pedido);
+
+                        break obs;
+                    } else {
+                        pedido.push('Sem observação');
+
+                        usuario.sacola.pedido.push(pedido);
+
+                        break obs;
+                    }
+                }
+                break;
+            case 3:
+                pedido.push(hamguergueres.op3.nome);
+
+                pedido.push(hamguergueres.op3.preco);
+
+                obs: while (true) {
+                    console.log('Deseja fazer alguma obeservação?\nex: [SEM SALADA]');
+
+                    let obs = prompt('[ S / N ]  ').toLowerCase();
+
+                    if (obs != 's' && obs != 'n') {
+                        continue obs;
+                    } else if (obs === 's') {
+                        console.log('Escreva sua observação: ');
+
+                        obs = prompt('....  ');
+
+                        pedido.push(obs);
+
+                        usuario.sacola.pedido.push(pedido);
+
+                        break obs;
+                    } else {
+                        pedido.push('Sem observação');
+
+                        usuario.sacola.pedido.push(pedido);
+
+                        break obs;
+                    }
+                }
+                break;
+            case 4:
+                pedido.push(bebidas.op1.nome);
+
+                pedido.push(bebidas.op1.preco);
+
+                obs: while (true) {
+                    console.log('Deseja fazer alguma obeservação?\nex: [SEM GELO]');
+
+                    let obs = prompt('[ S / N ]  ').toLowerCase();
+
+                    if (obs != 's' && obs != 'n') {
+                        continue obs;
+                    } else if (obs === 's') {
+                        console.log('Escreva sua observação: ');
+
+                        obs = prompt('....  ');
+
+                        pedido.push(obs);
+
+                        usuario.sacola.pedido.push(pedido);
+
+                        break obs;
+                    } else {
+                        pedido.push('Sem observação');
+
+                        usuario.sacola.pedido.push(pedido);
+
+                        break obs;
+                    }
+                }
+                break;
+            case 5:
+                pedido.push(bebidas.op2.nome);
+
+                pedido.push(bebidas.op2.preco);
+
+                obs: while (true) {
+                    console.log('Deseja fazer alguma obeservação?\nex: [SEM GELO]');
+
+                    let obs = prompt('[ S / N ]  ').toLowerCase();
+
+                    if (obs != 's' && obs != 'n') {
+                        continue obs;
+                    } else if (obs === 's') {
+                        console.log('Escreva sua observação: ');
+
+                        obs = prompt('....  ');
+
+                        pedido.push(obs);
+
+                        usuario.sacola.pedido.push(pedido);
+
+                        break obs;
+                    } else {
+                        pedido.push('Sem observação');
+
+                        usuario.sacola.pedido.push(pedido);
+
+                        break obs;
+                    }
+                }
+                break;
+            case 6:
+                pedido.push(bebidas.op3.nome);
+
+                pedido.push(bebidas.op3.preco);
+
+                obs: while (true) {
+                    console.log('Deseja fazer alguma obeservação?\nex: [SEM GELO]');
+
+                    let obs = prompt('[ S / N ]  ').toLowerCase();
+
+                    if (obs != 's' && obs != 'n') {
+                        continue obs;
+                    } else if (obs === 's') {
+                        console.log('Escreva sua observação: ');
+
+                        obs = prompt('....  ');
+
+                        pedido.push(obs);
+
+                        usuario.sacola.pedido.push(pedido);
+
+                        break obs;
+                    } else {
+                        pedido.push('Sem observação');
+
+                        usuario.sacola.pedido.push(pedido);
+
+                        break obs;
+                    }
+                }
+                break;
+            case 7:
+                pedido.push(bebidas.op4.nome);
+
+                pedido.push(bebidas.op4.preco);
+
+                obs: while (true) {
+                    console.log('Deseja fazer alguma obeservação?\nex: [SEM GELO]');
+
+                    let obs = prompt('[ S / N ]  ').toLowerCase();
+
+                    if (obs != 's' && obs != 'n') {
+                        continue obs;
+                    } else if (obs === 's') {
+                        console.log('Escreva sua observação: ');
+
+                        obs = prompt('....  ');
+
+                        pedido.push(obs);
+
+                        usuario.sacola.pedido.push(pedido);
+
+                        break obs;
+                    } else {
+                        pedido.push('Sem observação');
+
+                        usuario.sacola.pedido.push(pedido);
+
+                        break obs;
+                    }
+                }
+                break;
+            case 8:
+                pedido.push(bebidas.op5.nome);
+
+                pedido.push(bebidas.op5.preco);
+
+                obs: while (true) {
+                    console.log('Deseja fazer alguma obeservação?\nex: [SEM GELO]');
+
+                    let obs = prompt('[ S / N ]  ').toLowerCase();
+
+                    if (obs != 's' && obs != 'n') {
+                        continue obs;
+                    } else if (obs === 's') {
+                        console.log('Escreva sua observação: ');
+
+                        obs = prompt('....  ');
+
+                        pedido.push(obs);
+
+                        usuario.sacola.pedido.push(pedido);
+
+                        break obs;
+                    } else {
+                        pedido.push('Sem observação');
+
+                        usuario.sacola.pedido.push(pedido);
+
+                        break obs;
+                    }
+                }
+                break;
+            case 9:
+                pedido.push(sobremesas.op1.nome);
+
+                pedido.push(sobremesas.op1.preco);
+
+                obs: while (true) {
+                    console.log('Deseja fazer alguma obeservação?\nex: [SEM COLHER]');
+
+                    let obs = prompt('[ S / N ]  ').toLowerCase();
+
+                    if (obs != 's' && obs != 'n') {
+                        continue obs;
+                    } else if (obs === 's') {
+                        console.log('Escreva sua observação: ');
+
+                        obs = prompt('....  ');
+
+                        pedido.push(obs);
+
+                        usuario.sacola.pedido.push(pedido);
+
+                        break obs;
+                    } else {
+                        pedido.push('Sem observação');
+
+                        usuario.sacola.pedido.push(pedido);
+
+                        break obs;
+                    }
+                }
+                break;
+            case 10:
+                pedido.push(sobremesas.op2.nome);
+
+                pedido.push(sobremesas.op2.preco);
+
+                obs: while (true) {
+                    console.log('Deseja fazer alguma obeservação?\nex: [SEM COLHER]');
+
+                    let obs = prompt('[ S / N ]  ').toLowerCase();
+
+                    if (obs != 's' && obs != 'n') {
+                        continue obs;
+                    } else if (obs === 's') {
+                        console.log('Escreva sua observação: ');
+
+                        obs = prompt('....  ');
+
+                        pedido.push(obs);
+
+                        usuario.sacola.pedido.push(pedido);
+
+                        break obs;
+                    } else {
+                        pedido.push('Sem observação');
+
+                        usuario.sacola.pedido.push(pedido);
+
+                        break obs;
+                    }
+                }
+                break;
         }
 
         pedido: while (true) {
